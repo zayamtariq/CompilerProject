@@ -1,0 +1,13 @@
+I start every project the same way: very excited and way too in over my head. The hard part about projects is managing your psychology. The questions I find myself often asking are 
+- Who am I doing this for? Am I sure I'm doing this for me, or am I trying to impress someone (am I trying to impress me? Is that a bad thing?)
+- What is the point of doing this? Why do anything hard when I could do nothing? Why do anything if I'm going to die one day anyways? 
+It's really funny honestly writing it out like this and reading it all. Like, it's literally just a fun hobby project. And yet I think the mind is really great at tricking itself into thinking stuff that it doesn't really believe. I think it's constantly
+seeking the path of least resistance. That's not good. Because being bored is so sucky. I hate it. I'd rather be sad than be bored. I'd rather be depressed than to feel total emptiness (though I hear emptiness is a symptom of depression, so perhaps not). 
+
+There's also this tendency to bully myself for making virtually 0 progress in the past couple days. But I think I'm going to actively decide against doing that. 
+
+Programming Notes: 
+- Reminding myself again that static variables have both global scope (this means stored in ROM, I think?) and can not, in fact, be changed after initialization. Good to know. 
+- If you want dynamic, global variables in C, use the extern keyword. What extern does is says "I'm going to exist in this file, but I'm going to be DECLARED in another file."
+- https://www.youtube.com/watch?v=ySY_FlA7EvA&ab_channel=JacobSorber 
+- I'm sure there's a better way of converting strings of characters to integers in C, but I can't seem to find it. Will come back to this. 
