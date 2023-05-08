@@ -1,0 +1,22 @@
+great explanation on abstract syntax trees: 
+- https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff 
+
+I find myself feeling very happy and motivated to work on this. The weight is off my shoulders. 
+Once again, I find that working hard on something and really aiming my focus on something 
+helps me forget all the problems of the outside world. I am here. Just me and my little hobby compiler. 
+This is what's important right now, and so this is what will get my full attention. It's a nice feeling. 
+
+At the psych evaluation, they told me that I tested negative for ADHD. That makes me happy to hear. I can focus
+on things. Good for me. This is worthy of celebration, perhaps. I'm trying to celebrate my wins more. 
+I'm trying to be nicer to myself, and cultivate a loving relationship with myself. These things are important. 
+I realize now that you get nothing out of being a tyrant to yourself.  
+
+One thing I'm realizing now is that I actually don't have the *greatest* understanding of malloc, and 
+when to use it. Why is the following okay: 
+int x = 3; 
+without using malloc, but then in other cases we have to allocate space for an int? 
+Here's what I do know: 
+- Malloc interacts with the Heap (?), a different memory of data than where a local variable like int x would be stored. 
+- I vaguely recall there being something with pointers involved. 
+- Malloc is for DYNAMIC memory allocation, when you don't know how much you want. (Remember this is why classic arrays in C can't be resized!)
+
