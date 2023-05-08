@@ -4,10 +4,11 @@
 #include "Token.h"
 #include <stdio.h> 
 #include "SimpleLexer.h"
+#include "Data.h"
 
 // extern linking from main.c
-extern FILE * fileToCompile; 
-int Putback; // will hold the character we wanted to "put back", if we went too far 
+// extern FILE * fileToCompile; 
+int Putback = 0; // will hold the character we wanted to "put back", if we went too far 
 int Line; // keep track of what line we are on currently while reading. 
 
 
@@ -88,10 +89,10 @@ static int readInt(int c) {
 
     current = c; 
     final_value = 0; 
-    while (current < 48 || current > 57) {
+    while (current >= 48 && current <= 57) {
         current -= 48; // to convert to an ACTUAL number value from ASCII 
         final_value = final_value * 10 + current; 
-        current = next(); 
+        current = getc(fileToCompile); 
     } 
 
     putback(current); // want to put back whatever character it was that we went too far with
