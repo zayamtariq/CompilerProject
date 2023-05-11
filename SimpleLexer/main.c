@@ -2,6 +2,7 @@
 #include "Token.h"
 #include "SimpleLexer.h"
 #include "Data.h"
+#include "../SimpleParser/Expr.h"
 
 char* tokenTypes[] = {"+", "-", "*", "/", "Integer"}; 
 
@@ -33,12 +34,16 @@ static void print_file() {
 
 int main()  
 { 
+     struct ASTnode *n; 
 
     // printf("Hello World!"); // sanity check to make sure program runs  
 
     fileToCompile = fopen("SimpleLexer/test_file", "r"); // need to be very careful with relative/absolute paths here
 
-    scan_file(); 
+    // scan_file(); -> for lexical analysis 
+
+    scan(&Token); // get the first token from input 
+    n = binexpr(); 
 
     return 0; 
 }

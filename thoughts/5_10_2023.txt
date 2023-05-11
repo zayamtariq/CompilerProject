@@ -1,0 +1,29 @@
+So I missed a day of work and I already feel the thoughts coming in. Here's some of the things racing through my mind, right now: 
+
+- I don't HAVE to do this. I could just chill and watch YouTube. I will still get a job and be fine, I don't have to be doing this. 
+
+This is a wrong way of looking at things, and not why I started doing this project at all. I think Compilers are very fascinating in how they work. 
+That's the only thing I'm chasing. It's not about a job or putting something on my resume. I don't care about any of that. 
+
+- What's the point in trying when ChatGPT could take my job anyways in the future?
+
+Essentially, what I'm arguing here is: "What's the point of doing anything fun when the future could potentially be bad?" 
+Well to Zayam I say this: What if the future could be good? What if you just did this for fun? What if you only valued the things you could control 
+instead of constantly worrying about the future? And how about you stop being so anxious about this damn job thing, Zayam!!! 
+
+So I'm forcing myself to sit here and work on this today. I know I'll feel good afterwards, but man it's so tempting to dive into all of these 
+distractions around me. Twitter is my guilty pleasure. It's so easy, and it's so fascinating *just* how much time I will sink into that bullshit. 
+I think I need to learn to put the phone down. The problem is the internet is everywhere. It's unavoidable. The only thing to do is to be very mindful 
+of every single thing I'm doing all the time, which I'm not sure I have the mental bandwidth for anyhow. 
+
+The big takeaway of parsers of any sort is that there does seem to be something fundamentally recursive about 
+reading text. When we separate a sentence into words - into tokens - it becomes an analysis of individual words, 
+and not just this big giant sentence we can't seem to make sense of. Parsing IS recursive. 
+
+All in all, I didn't make much progress. But I feel as though I've set myself up TO make progress tomorrow, 
+which is important, I think? I've been in this spot before. And I've gotten through it. So clearly it's going 
+to be okay. 
+
+TO DO: 
+- Create AST recursively 
+- Evaluate AST once it's been created 
