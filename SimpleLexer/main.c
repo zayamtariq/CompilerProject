@@ -44,6 +44,16 @@ int main()
 
     scan(&Token); // get the first token from input 
     n = binexpr(); 
+    // and now need to evaluate this tree in the following format: 
+    /* 
+        operation 
+        / \
+    left  right 
+
+    where operation is {+, -, /, *}
+    and left and right are numbers 
+    */ 
+    printf("%d", evaluateTree(n)); 
 
     return 0; 
 }

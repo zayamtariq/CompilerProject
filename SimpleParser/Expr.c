@@ -46,4 +46,52 @@ static struct ASTnode *primary(void) {
 // (this is our simple, naive parser)
 struct ASTnode *binexpr(void) { 
     // TO DO
+    struct ASTnode * root; 
+    struct ASTnode * left; 
+    struct ASTnode * right; 
+    int operation; 
+
+    left = primary(); 
+
+    if (Token.token == T_EOF) { 
+        // our base case. no more tokens to read in. 
+        return left; 
+    }
+
+    operation = tokenToAST(Token.token); // this is the new token that was scanned in via primary 
+
+    // ok now we have two options to populate the right node: 
+    // 1. if there's nothing after the number, then right node just equals number (base case) 
+    // 2. if there IS something after the number, then recurse 
+    right = binexpr(); 
+
+    return makeASTNode(operation, left, right, NULL); 
+}
+
+int evaluateTree(struct ASTnode * node) { 
+    int left; 
+    int right;
+
+    if (node->left) { // will keep on recursing until we hit a number 
+        left = evaluateTree(node->left); 
+    } 
+    if (node->right) { 
+        right = evaluateTree(node->right); 
+    }
+
+    switch(node->operation) { 
+        case A_ADD: 
+            return left + right; 
+        case A_SUBTRACT: 
+            return left - right; 
+        case A_MULTIPLY: 
+            return left * right; 
+        case A_DIVIDE: 
+            return left / right; 
+        case A_NUMBER:
+            return node->intvalue; 
+        default: 
+            printf("Unknown operator"); 
+            return -1; 
+    }
 }

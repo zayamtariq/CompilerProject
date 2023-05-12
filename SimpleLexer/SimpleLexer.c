@@ -78,7 +78,9 @@ int scan(struct Token *t) {
         }
         return 1; 
     }
+    t->token = T_EOF; 
     return 0; // we hit EOF 
+
 }
 
 // will return the total, multidigit integer  
