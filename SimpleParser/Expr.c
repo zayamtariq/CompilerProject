@@ -4,6 +4,9 @@
 
 // function that converts tokens into AST operations (arbitrary for now)
 int tokenToAST(int tok) { 
+
+    // printf("%d \n", tok); 
+
     switch(tok) { 
         case T_PLUS: 
             return A_ADD; 
@@ -24,6 +27,8 @@ int tokenToAST(int tok) {
 static struct ASTnode *primary(void) { 
     struct ASTnode *n; 
 
+    // printf("%d \n", GlobalToken.intvalue); 
+    // printf("%d \n", GlobalToken.token); 
     // we will: 
     // 1. make leaf ast node for our number 
     // 2. scan next token for our global variable to hold the latest scanned token 
@@ -33,7 +38,7 @@ static struct ASTnode *primary(void) {
         return n; 
     }
     else { 
-        printf("syntax error on line "); // need to integrate lines for the whole system, make global  
+        // printf("syntax error on line "); // need to integrate lines for the whole system, make global  
     }
 }
 
@@ -41,9 +46,9 @@ static struct ASTnode *primary(void) {
 // (this is our simple, naive parser)
 struct ASTnode *binexpr(void) { 
     // TO DO
-    struct ASTnode * root; 
     struct ASTnode * left; 
     struct ASTnode * right; 
+
     int operation; 
 
     left = primary(); 
@@ -55,12 +60,15 @@ struct ASTnode *binexpr(void) {
 
     operation = tokenToAST(GlobalToken.token); // this is the new token that was scanned in via primary 
 
+    // get next token 
+    scan(&GlobalToken); 
+
     // ok now we have two options to populate the right node: 
     // 1. if there's nothing after the number, then right node just equals number (base case) 
     // 2. if there IS something after the number, then recurse 
     right = binexpr(); 
 
-    return makeASTNode(operation, left, right, NULL); 
+    return makeASTNode(operation, left, right, -1); // treating -1 as null for now (if its not A_NUMBER anyways, it won't matter what the value is) 
 }
 
 int evaluateTree(struct ASTnode * node) { 

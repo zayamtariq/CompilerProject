@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h> 
 #include "Tree.h"
 
 // we want to build ast nodes and trees 
@@ -6,6 +7,8 @@
 // lets populate a node given a call
 struct ASTnode * makeASTNode(int operation, struct ASTnode *left, struct ASTnode *right, int intvalue) { 
     struct ASTnode * toReturn; 
+
+    toReturn = (struct ASTnode *) malloc(sizeof(struct ASTnode));
 
     toReturn->operation = operation; 
     toReturn->left = left; 
