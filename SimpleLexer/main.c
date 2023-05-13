@@ -1,7 +1,4 @@
 #include <stdio.h>
-#include "Token.h"
-#include "SimpleLexer.h"
-#include "Data.h"
 #include "../SimpleParser/Expr.h"
 
 char* tokenTypes[] = {"+", "-", "*", "/", "Integer"}; 
@@ -42,7 +39,7 @@ int main()
 
     // scan_file(); -> for lexical analysis 
 
-    scan(&Token); // get the first token from input 
+    scan(&GlobalToken); // get the first token from input 
     n = binexpr(); 
     // and now need to evaluate this tree in the following format: 
     /* 

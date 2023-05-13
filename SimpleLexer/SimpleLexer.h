@@ -1,3 +1,5 @@
+#include "Data.h"
+
 static int next(void); 
 
 static void putback(int c); 

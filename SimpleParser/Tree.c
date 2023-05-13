@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "AST.h"
 #include "Tree.h"
 
 // we want to build ast nodes and trees 

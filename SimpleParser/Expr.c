@@ -1,10 +1,5 @@
 // naive expression parser (no notion of precedence, for now)
 #include <stdio.h> 
-#include "../SimpleLexer/Token.h"
-#include "AST.h" 
-#include "../SimpleLexer/Data.h" 
-#include "Tree.h"
-#include "../SimpleLexer/SimpleLexer.h"
 #include "Expr.h"
 
 // function that converts tokens into AST operations (arbitrary for now)
@@ -32,9 +27,9 @@ static struct ASTnode *primary(void) {
     // we will: 
     // 1. make leaf ast node for our number 
     // 2. scan next token for our global variable to hold the latest scanned token 
-    if (Token.token == T_NUMBER) { 
-        n = makeASTLeaf(A_NUMBER, Token.intvalue); 
-        scan(&Token); 
+    if (GlobalToken.token == T_NUMBER) { 
+        n = makeASTLeaf(A_NUMBER, GlobalToken.intvalue); 
+        scan(&GlobalToken); 
         return n; 
     }
     else { 
@@ -53,12 +48,12 @@ struct ASTnode *binexpr(void) {
 
     left = primary(); 
 
-    if (Token.token == T_EOF) { 
+    if (GlobalToken.token == T_EOF) { 
         // our base case. no more tokens to read in. 
         return left; 
     }
 
-    operation = tokenToAST(Token.token); // this is the new token that was scanned in via primary 
+    operation = tokenToAST(GlobalToken.token); // this is the new token that was scanned in via primary 
 
     // ok now we have two options to populate the right node: 
     // 1. if there's nothing after the number, then right node just equals number (base case) 

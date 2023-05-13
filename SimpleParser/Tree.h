@@ -1,3 +1,4 @@
+#include "AST.h"
 
 struct ASTnode * makeASTNode(int operation, struct ASTnode *left, struct ASTnode *right, int intvalue); 
 

@@ -3,4 +3,4 @@
 #include "Token.h" 
 
 extern FILE * fileToCompile; // can share this among all files 
-extern struct Token Token; 
+extern struct Token GlobalToken; 

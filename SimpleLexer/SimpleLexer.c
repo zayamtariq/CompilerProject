@@ -1,10 +1,8 @@
 // simple lexer has the following elements: 
 // 4 math operations: *, +, -, / 
 // whole numbers with 1 or more digits 
-#include "Token.h"
 #include <stdio.h> 
 #include "SimpleLexer.h"
-#include "Data.h"
 
 // extern linking from main.c
 // extern FILE * fileToCompile; 

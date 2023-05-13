@@ -1,0 +1,7 @@
+Learned a valuable lesson today, in terms of design choices. 
+
+1. Always include dependencies on other files in .h files. 
+2. Your .c file should only have one file dependency: to it's own h file. 
+3. There should be no cycles in your dependencies. It should just be one straight, linear path. 
+
+This can save a lot of headache in the future. 
