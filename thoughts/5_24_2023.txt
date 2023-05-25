@@ -11,3 +11,15 @@ what i want to do today/tomorrow:
 - review what i've done so far (not that much, but still. make sure we have all our eggs in one basket.) 
 - figure out how to parse expressions in PEMDAS order. 
 
+so the reason that no precedence exists is that all mathematical operations are viewed the same way. 
+we can alter this such that we have a new tree where division and multiplication take priority. 
+this takes a long time to actually execute, with all the function calls needed to ensure the correct level 
+of precedence. there would have to be a unique function for every single precedence level, which by the end of 
+this whole project would be a lot. 
+
+there is an alternative called pratt parsing: https://en.wikipedia.org/wiki/Operator-precedence_parser#Pratt_parsing 
+which takes care of precedence in a better way. 
+
+https://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/ 
+^ good article explaining pratt parsers 
+

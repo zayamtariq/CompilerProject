@@ -45,7 +45,9 @@ static struct ASTnode *primary(void) {
 // returns the AST tree's root, which should be a binary operator 
 // (this is our simple, naive parser)
 struct ASTnode *binexpr(void) { 
-    // TO DO
+    // lowest precedence function call first, now 
+    return (additive_expr()); 
+    /*
     struct ASTnode * left; 
     struct ASTnode * right; 
 
@@ -69,6 +71,7 @@ struct ASTnode *binexpr(void) {
     right = binexpr(); 
 
     return makeASTNode(operation, left, right, -1); // treating -1 as null for now (if its not A_NUMBER anyways, it won't matter what the value is) 
+    */ 
 }
 
 int evaluateTree(struct ASTnode * node) { 
@@ -97,4 +100,72 @@ int evaluateTree(struct ASTnode * node) {
             printf("Unknown operator"); 
             return -1; 
     }
+}
+
+/*
+We need help with precedence to implement PEMDAS 
+*/
+
+// will return a tree whose root is '*' or '/' 
+struct ASTnode *mutliplicative_expr(void) { 
+    struct ASTnode *left, *right; 
+    int tokentype; 
+
+    // left child will always be a number (eventually)
+    left = primary(); 
+
+    // making sure its not the last token 
+    tokentype = GlobalToken.token; 
+    if (tokentype == T_EOF) { 
+        return left; 
+    }
+
+    while ((tokentype == T_STAR) || (tokentype == T_SLASH)) { 
+        // get the next integer literal 
+        scan(&GlobalToken); 
+        right = primary(); 
+
+        // join with left integer literal. 
+        // NOTE: we still call this left because we could possibly want to 
+        // continue joining this with further multiplicative expressions 
+        left = makeASTNode(tokenToAST(tokentype), left, right, 0); 
+
+        // making sure its not the last token 
+        tokentype = GlobalToken.token; 
+        if (tokentype == T_EOF) { 
+            break;  
+        }        
+    }
+
+    // return whatever tree was created 
+    return left; 
+}
+
+// will return a tree whose root is '+' or '-'
+// logic for all precedence level functions is essentially the same 
+struct ASTnode *additive_expr(void) { 
+    struct ASTnode *left, *right; 
+    int tokentype; 
+
+    left = mutliplicative_expr(); 
+
+    tokentype = GlobalToken.token; 
+    if (tokentype == T_EOF) { 
+        return left; 
+    }
+
+    while (1) { 
+        scan(&GlobalToken); 
+
+        right = mutliplicative_expr(); 
+
+        left = makeASTNode(tokenToAST(tokentype), left, right, 0); 
+
+        tokentype = GlobalToken.token; 
+        if (tokentype == T_EOF) { 
+            break; 
+        }
+    }
+
+    return left; 
 }
