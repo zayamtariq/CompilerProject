@@ -1,0 +1,13 @@
+i have come from hell and back to work on this project. i am once again going to blindly believe that there is hope for the future. 
+i have to. i think a big fear of mine is: "what's the point of working on all of this stuff and contributing to society if i feel so isolated
+all of the time?" i think this is a valid thought, honestly. all thoughts are valid, but this one especially so. a good engineer needs people 
+around him to do his best work. engineers can only contribute to a society that they care about. engineering isn't about locking 
+yourself in a room for hours just coding. it's about spending time with your family and people you love, and THEN locking yourself in a room 
+for hours just coding. it gives you a reason to code. i think i need to my family i love them more. 
+
+ALSO, if you don't make time for maintenance, time will be made for you. ok thanks. 
+
+what i want to do today/tomorrow: 
+- review what i've done so far (not that much, but still. make sure we have all our eggs in one basket.) 
+- figure out how to parse expressions in PEMDAS order. 
+
