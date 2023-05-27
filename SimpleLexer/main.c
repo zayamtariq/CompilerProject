@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "../SimpleParser/Expr.h"
-
+#include "../AssemblyGenerator/Generator.h"
+ 
 char* tokenTypes[] = {"+", "-", "*", "/", "Integer"}; 
 
 // this function should just keep scanning, creating, and then printing tokens
@@ -50,6 +50,7 @@ int main()
     where operation is {+, -, /, *}
     and left and right are numbers 
     */ 
+    generateCode(n); 
     printf("%d", evaluateTree(n)); 
 
     return 0; 
